@@ -53,9 +53,12 @@
     components: {
       Card
     },
+    mounted: function() {
+      //TODO:
+    },
     data: function() {
       return {
-        //
+        cards: []
       };
     }
   }

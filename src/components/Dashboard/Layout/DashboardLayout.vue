@@ -2,7 +2,7 @@
   <div class="wrapper">
     <side-bar>
       <mobile-menu slot="content"></mobile-menu>
-      <sidebar-link to="/admin/overview">
+      <sidebar-link to="/profile/overview">
         <i class="nc-icon nc-grid-45"></i>
         <p>Dashboard</p>
       </sidebar-link>

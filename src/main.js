@@ -23,6 +23,8 @@ router.beforeEach((to, from, next) => {
   let userToken = localStorage.token
 
   //TODO: get current user
+  console.log(localStorage.token)
+  console.log(localStorage.getItem('token'))
 
   if (requiresAuth && !userToken) {
     next('/auth/login');
@@ -34,12 +36,8 @@ router.beforeEach((to, from, next) => {
 });
 
 /* eslint-disable no-new */
-let VueApp = new Vue({
+new Vue({
   el: '#app',
-  data: {
-    user: localStorage.user,
-    userToken: localStorage.token
-  },
   render: h => h(App),
   router
 })

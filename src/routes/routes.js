@@ -39,14 +39,6 @@ const routes = [
         path: 'register',
         name: 'Register',
         component: Register
-      },
-      {
-        path: 'logout',
-        redirect: to => {
-          localStorage.removeItem('token');
-          localStorage.removeItem('user');
-          return '/';
-        }
       }
     ]
   },

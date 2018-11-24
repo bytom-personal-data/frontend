@@ -45,7 +45,7 @@
             <!--</template>-->
           <!--</drop-down>-->
           <li class="nav-item">
-            <router-link to="/auth/logout">Log Out</router-link>
+            <a href="#" @click.prevent="logout">Log Out</a>
           </li>
         </ul>
       </div>
@@ -80,7 +80,11 @@
       },
       hideSidebar () {
         this.$sidebar.displaySidebar(false)
-      }
+      },
+      logout:function(){
+        localStorage.clear();
+        this.$router.push('/')
+      },
     }
   }
 

@@ -67,6 +67,7 @@
               this.$router.push('/profile/overview')
             })
           .catch(rej => {
+                console.log(rej)
                 if(rej.response && rej.response.data) {
                   this.errors.push(rej.response.data.message);
                 } else {
