@@ -40,7 +40,7 @@ gulp.task('fonts', function(){
 gulp.task('imageMin', function() {
     return gulp.src('img/**/*.{jpg,png,gif}', {cwd: folder.src})
         .pipe(imagemin())
-        .pipe(gulp.dest(folder.dist + '/images'));
+        .pipe(gulp.dest(folder.dist + '/img'));
 });
 
 gulp.task('svgstore', function () {
@@ -54,7 +54,8 @@ gulp.task('svgstore', function () {
 gulp.task('styles', function () {
     return streamqueue({ objectMode: true },
         gulp.src([folder.src + 'css/*.css',
-            folder.src + 'sass/light-bootstrap-dashboard.scss'
+            folder.src + 'sass/light-bootstrap-dashboard.scss',
+            folder.src + 'sass/app.scss'
         ]).pipe(sass())
     )
         .pipe(autoprefixer('last 5 version'))
@@ -82,7 +83,8 @@ gulp.task('js', function () {
             folder.src + 'js/plugins/bootstrap-switch.js',
             folder.src + 'js/plugins/chartist.min.js',
             folder.src + 'js/plugins/nouislider.min.js',
-            folder.src + 'js/light-bootstrap-dashboard.js'
+            folder.src + 'js/light-bootstrap-dashboard.js',
+            folder.src + 'js/app.js'
         ])
     )
         .pipe(concat('scripts.min.js'))
@@ -107,14 +109,14 @@ function serve(done) {
 
 gulp.task('watch', function () {
     gulp.watch(folder.src + '*.html', gulp.series('html', reload));
-    gulp.watch(folder.src + 'images/**/*', gulp.series('imageMin', reload));
+    gulp.watch(folder.src + 'img/**/*', gulp.series('imageMin', reload));
     gulp.watch(folder.src + 'icons/**/*', gulp.series('svgstore', reload));
     gulp.watch(folder.src + 'fonts/**/*', gulp.series('fonts', reload));
-    gulp.watch(folder.src + 'styles/**/*', gulp.series('styles', reload));
-    gulp.watch(folder.src + 'scripts/**/*', gulp.series('js', reload));
+    gulp.watch(folder.src + 'sass/**/*', gulp.series('styles', reload));
+    gulp.watch(folder.src + 'js/**/*', gulp.series('js', reload));
     gulp.watch(folder.src + 'libs/**/*', gulp.series('js', 'styles', reload));
 });
 
 gulp.task('build', gulp.series('fonts', 'styles', 'jscore', 'js', 'imageMin', 'svgstore', 'html'));
 
-gulp.task('default', gulp.parallel('build', 'watch', serve));
+gulp.task('default', gulp.parallel('build', 'watch'));
