@@ -75,3 +75,11 @@
     margin-bottom: 0;
   }
 }
+
+.form-group--radio-list {
+  text-align: left;
+
+  .form-check-label {
+    padding-left: 0;
+  }
+}

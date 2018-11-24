@@ -40,13 +40,11 @@
       })
         .then(resp => {
           const token = resp.data.token
-          localStorage.setItem('userToken', token)
+          localStorage.setItem('token', token)
           localStorage.setItem('user', JSON.stringify(resp.data.user))
           resolve(resp)
         })
         .catch(err => {
-          localStorage.removeItem('userToken')
-          localStorage.removeItem('user')
           reject(err)
         })
     })
@@ -63,16 +61,17 @@
     methods: {
       login: function () {
         const { username, password } = this
+        this.errors = []
         myLoginRoutine({ username, password })
           .then((resp) => {
-              this.$router.push('/')
+              this.$router.push('/profile/overview')
             })
           .catch(rej => {
-            if(rej.response && rej.response.data) {
-              this.errors.push(rej.response.data.message);
-            } else {
-              this.errors.push('Unknown server error');
-            }
+                if(rej.response && rej.response.data) {
+                  this.errors.push(rej.response.data.message);
+                } else {
+                  this.errors.push('Unknown server error');
+                }
             })
       },
       checkForm: function (e) {
