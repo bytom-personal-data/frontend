@@ -278,6 +278,7 @@
             left: 0;
             height: 100%;
             object-fit: cover;
+            transition: transform .5s;
         }
         &::before {
             content: '';
@@ -295,6 +296,9 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0,0,0,.4);
+        }
+        &:hover img{
+            transform: scale(1.1);
         }
     }
     h3 {

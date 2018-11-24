@@ -55,24 +55,25 @@ body > .navbar-collapse{
             text-transform: uppercase;
             padding: $padding-zero;
             display: block;
-            font-size: $font-size-large;
+            font-size: 1.5rem;
             color: $white-color;
             text-align: left;
             font-weight: $font-weight-normal;
             line-height: 40px;
+            font-family: 'Georgia', serif;
 
             .logo-img{
                 width: 40px;
                 display: inline-block;
                 height: 40px;
-                margin-left: 0px;
+                margin-left: 0;
                 margin-right: 10px;
                 background: white;
                 border-radius: 40px;
                 text-align: center;
 
               img{
-                  max-width: 21px;
+                  max-width: 25px;
               }
             }
         }

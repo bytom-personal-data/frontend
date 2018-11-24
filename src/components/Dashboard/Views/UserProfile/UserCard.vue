@@ -2,7 +2,7 @@
   <card class="card-user container-fluid">
     <div class="author row">
         <div class="avatar-wrapper col-md-3">
-          <img class="avatar border-gray" src="static/img/faces/face-3.jpg" alt="..."/>
+          <img class="avatar border-gray" src="static/img/faces/user.jpg" alt="..."/>
         </div>
         <div class="thin-info-wrapper col-md-3">
           <h4 class="title">Mike Andrew</h4>
