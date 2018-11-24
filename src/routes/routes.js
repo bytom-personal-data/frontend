@@ -43,9 +43,8 @@ const routes = [
       {
         path: 'logout',
         redirect: to => {
-          localStorage.removeItem('userToken');
+          localStorage.removeItem('token');
           localStorage.removeItem('user');
-
           return '/';
         }
       }

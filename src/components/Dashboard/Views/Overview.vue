@@ -9,14 +9,14 @@
             </div>
             <div class="row">
                 <div class="col-md">
-                    <a href="/admin/medicine/" class="profile__cat-button">
+                    <router-link to="/profile/medicine" class="profile__cat-button">
                         <div class="profile__cat-img">
                             <img src="/static/img/medicine.jpg" alt="">
                         </div>
                         <h3 class="profile__cat-button-title">
                             Medicine
                         </h3>
-                    </a>
+                    </router-link>
                 </div>
                 <div class="col-md">
                     <a href="" class="profile__cat-button">
