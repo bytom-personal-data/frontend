@@ -11,6 +11,7 @@ import Register from '../components/Auth/Register.vue'
 // Admin pages
 import Overview from 'src/components/Dashboard/Views/Overview.vue'
 import OrganisationsList from 'src/components/Dashboard/Views/Person/OrganisationsList.vue'
+import Medicine from 'src/components/Dashboard/Views/UserData/Medicine.vue'
 import TableList from 'src/components/Dashboard/Views/TableList.vue'
 import Typography from 'src/components/Dashboard/Views/Typography.vue'
 import Icons from 'src/components/Dashboard/Views/Icons.vue'
@@ -69,9 +70,9 @@ const routes = [
         component: OrganisationsList
       },
       {
-        path: 'table-list',
-        name: 'Table List',
-        component: TableList
+        path: 'medicine',
+        name: 'Medicine',
+        component: Medicine
       },
       {
         path: 'typography',

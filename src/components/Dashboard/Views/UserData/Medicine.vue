@@ -52,6 +52,11 @@
   export default {
     components: {
       Card
+    },
+    data: function() {
+      return {
+        //
+      };
     }
   }
 
