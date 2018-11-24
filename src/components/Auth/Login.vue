@@ -4,7 +4,7 @@
             <h2>Login</h2>
             <p>Please enter your email and password</p>
         </div>
-        <form id="Login" @submit.prevent="login">
+        <form class="login-form" id="Login" @submit.prevent="login">
             <div class="form-group">
                 <input type="email" required v-model="username" class="form-control" id="inputEmail" placeholder="Email Address">
             </div>
@@ -13,7 +13,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
             <div class="bottom-links">
-                <router-link to="/auth/register">Don't hane an Account?</router-link>
+                <router-link to="/auth/register">Don't have an Account?</router-link>
             </div>
         </form>
     </div>

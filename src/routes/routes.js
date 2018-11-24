@@ -6,6 +6,7 @@ import NotFound from '../components/GeneralViews/NotFoundPage.vue'
 
 // Auth Components
 import Login from '../components/Auth/Login.vue'
+import Register from '../components/Auth/Register.vue'
 
 // Admin pages
 import Overview from 'src/components/Dashboard/Views/Overview.vue'
@@ -13,7 +14,6 @@ import UserProfile from 'src/components/Dashboard/Views/UserProfile.vue'
 import TableList from 'src/components/Dashboard/Views/TableList.vue'
 import Typography from 'src/components/Dashboard/Views/Typography.vue'
 import Icons from 'src/components/Dashboard/Views/Icons.vue'
-import Maps from 'src/components/Dashboard/Views/Maps.vue'
 import Notifications from 'src/components/Dashboard/Views/Notifications.vue'
 
 const routes = [
@@ -33,6 +33,11 @@ const routes = [
         path: 'login',
         name: 'Login',
         component: Login
+      },
+      {
+        path: 'register',
+        name: 'Register',
+        component: Register
       }
     ]
   },
@@ -68,11 +73,6 @@ const routes = [
         path: 'icons',
         name: 'Icons',
         component: Icons
-      },
-      {
-        path: 'maps',
-        name: 'Maps',
-        component: Maps
       },
       {
         path: 'notifications',

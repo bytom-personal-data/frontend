@@ -1,6 +1,14 @@
 .auth-container { height: 100vh; background-image:url('/static/img/auth-bg.jpg'); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
 
 .auth-form-heading { color:#fff; font-size:26px; text-align: center; margin-bottom: 45px;}
+
+.auth-form-heading {
+  img {
+    width: 300px;
+    margin: 45px 0 75px;
+  }
+}
+
 .panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
 .panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
 .login-form .form-control {
@@ -49,3 +57,21 @@
 }
 .back { text-align: left; margin-top:10px;}
 .back a {color: #444444; font-size: 13px;text-decoration: none;}
+
+
+.auth-form-errors {
+  margin: 10px 0 15px;
+  color: #721c24;
+  background-color: #f8d7da;
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border-radius: .25rem;
+  text-align: left;
+
+  ul {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 0;
+  }
+}
