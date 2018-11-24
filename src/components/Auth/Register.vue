@@ -21,18 +21,24 @@
             <div class="form-group">
                 <input type="password" required v-model="password_repeat" class="form-control" id="inputPasswordRepeat" placeholder="Password Confirm">
             </div>
-            <div class="form-group">
+            <div class="form-group form-group--radio-list">
                 <div class="form-radio-list-label">Choose Account Type</div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                    <label class="form-check-label" for="exampleRadios1">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="accountPerson" value="option1" checked>
+                    <label class="form-check-label" for="accountPerson">
                         Person
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                        Organisation
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="accountFinance" value="option2">
+                    <label class="form-check-label" for="accountFinance">
+                        Finance Organisation
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="accountMedicine" value="option2">
+                    <label class="form-check-label" for="accountMedicine">
+                        Medicine Organisation
                     </label>
                 </div>
             </div>
@@ -57,14 +63,20 @@
         method: 'POST'
       })
         .then(resp => {
+          if(resp.data && resp.data.is_valid === false) {
+            //Register.errors.push('Server error. Please, try another email.');
+            resolve(resp)
+          }
+
           const token = resp.data.token
-          localStorage.setItem('userToken', token) // store the token in localstorage
+          localStorage.setItem('token', token) // store the token in localstorage
           localStorage.setItem('user', JSON.stringify(resp.data.user)) // store the token in localstorage
           resolve(resp)
         })
         .catch(err => {
-          localStorage.removeItem('userToken') // if the request fails, remove any possible user token if possible
-          localStorage.removeItem('user') // if the request fails, remove any possible user token if possible
+          console.log(err);
+          //localStorage.removeItem('userToken') // if the request fails, remove any possible user token if possible
+          //localStorage.removeItem('user') // if the request fails, remove any possible user token if possible
           reject(err)
         })
     })
@@ -86,7 +98,11 @@
         if(this.checkForm(e)) {
           const {username, password, password_repeat} = this
           myRegisterRoutine({username, password, password_repeat}).then(() => {
-            this.$router.push('/')
+            if(localStorage.token) {
+              this.$router.push('/profile/overview')
+            } else {
+              this.errors.push('Server error. Try another email.')
+            }
           })
         }
       },

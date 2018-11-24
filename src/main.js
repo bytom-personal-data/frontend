@@ -20,10 +20,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-
-  console.log(requiresAuth);
-  console.log(localStorage.getItem('userToken'))
-  let userToken = localStorage.getItem('userToken')
+  let userToken = localStorage.token
 
   //TODO: get current user
 
@@ -37,8 +34,12 @@ router.beforeEach((to, from, next) => {
 });
 
 /* eslint-disable no-new */
-new Vue({
+let VueApp = new Vue({
   el: '#app',
+  data: {
+    user: localStorage.user,
+    userToken: localStorage.token
+  },
   render: h => h(App),
   router
 })

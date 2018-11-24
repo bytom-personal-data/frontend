@@ -19,8 +19,8 @@
           resolve(resp)
         })
         .catch(err => {
-          localStorage.removeItem('userToken')
-          localStorage.removeItem('user')
+          //localStorage.removeItem('userToken')
+          //localStorage.removeItem('user')
           reject(err)
         })
     })
