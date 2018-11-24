@@ -17,6 +17,24 @@ const router = new VueRouter({
   linkActiveClass: 'nav-item active'
 })
 
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+  console.log(requiresAuth);
+  console.log(localStorage.getItem('userToken'))
+  let userToken = localStorage.getItem('userToken')
+
+  //TODO: get current user
+
+  if (requiresAuth && !userToken) {
+    next('/auth/login');
+  } else if (requiresAuth && userToken) {
+    next();
+  } else {
+    next();
+  }
+});
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

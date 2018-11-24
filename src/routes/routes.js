@@ -1,6 +1,11 @@
 import DashboardLayout from '../components/Dashboard/Layout/DashboardLayout.vue'
+import AuthLayout from '../components/Auth/AuthLayout.vue'
+
 // GeneralViews
 import NotFound from '../components/GeneralViews/NotFoundPage.vue'
+
+// Auth Components
+import Login from '../components/Auth/Login.vue'
 
 // Admin pages
 import Overview from 'src/components/Dashboard/Views/Overview.vue'
@@ -15,12 +20,29 @@ const routes = [
   {
     path: '/',
     component: DashboardLayout,
-    redirect: '/admin/overview'
+    redirect: '/admin/overview',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/auth',
+    component: AuthLayout,
+    children: [
+      {
+        path: 'login',
+        name: 'Login',
+        component: Login
+      }
+    ]
   },
   {
     path: '/admin',
     component: DashboardLayout,
     redirect: '/admin/overview',
+    meta: {
+      requiresAuth: true
+    },
     children: [
       {
         path: 'overview',
