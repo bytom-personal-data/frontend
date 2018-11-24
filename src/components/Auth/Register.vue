@@ -21,6 +21,21 @@
             <div class="form-group">
                 <input type="password" required v-model="password_repeat" class="form-control" id="inputPasswordRepeat" placeholder="Password Confirm">
             </div>
+            <div class="form-group">
+                <div class="form-radio-list-label">Choose Account Type</div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        Person
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                        Organisation
+                    </label>
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary">Register</button>
             <div class="bottom-links">
                 <router-link to="/auth/login">Already have an Account?</router-link>
@@ -44,11 +59,12 @@
         .then(resp => {
           const token = resp.data.token
           localStorage.setItem('userToken', token) // store the token in localstorage
-          localStorage.setItem('user', resp.data.user) // store the token in localstorage
+          localStorage.setItem('user', JSON.stringify(resp.data.user)) // store the token in localstorage
           resolve(resp)
         })
         .catch(err => {
-          localStorage.removeItem('user-token') // if the request fails, remove any possible user token if possible
+          localStorage.removeItem('userToken') // if the request fails, remove any possible user token if possible
+          localStorage.removeItem('user') // if the request fails, remove any possible user token if possible
           reject(err)
         })
     })
@@ -60,6 +76,7 @@
         username: '',
         password: '',
         password_repeat: '',
+        account_type: '',
 
         errors: []
       }

@@ -5,6 +5,13 @@
             <p>Please enter your email and password</p>
         </div>
         <form class="login-form" id="Login" @submit.prevent="login">
+            <div v-if="errors.length" class="auth-form-errors">
+                <strong>Fix the following errors:</strong>
+                <ul>
+                    <li v-for="error in errors">{{ error }}</li>
+                </ul>
+            </div>
+
             <div class="form-group">
                 <input type="email" required v-model="username" class="form-control" id="inputEmail" placeholder="Email Address">
             </div>
@@ -19,23 +26,27 @@
     </div>
 </template>
 <script>
+  import { API_URL } from '../API/API_URL'
+
   const axios = require('axios')
 
   // Auth Routine
   const myLoginRoutine = user => {
     return new Promise((resolve, reject) => {
       axios({
-        url: API_URL + '/signin',
+        url: API_URL + '/login',
         data: user,
         method: 'POST'
       })
         .then(resp => {
           const token = resp.data.token
           localStorage.setItem('userToken', token)
+          localStorage.setItem('user', JSON.stringify(resp.data.user))
           resolve(resp)
         })
         .catch(err => {
           localStorage.removeItem('userToken')
+          localStorage.removeItem('user')
           reject(err)
         })
     })
@@ -45,15 +56,22 @@
     data: function () {
       return {
         username: '',
-        password: ''
+        password: '',
+
+        errors: []
       }
     },
     methods: {
       login: function () {
         const { username, password } = this
-        myLoginRoutine({ username, password }).then(() => {
-          this.$router.push('/')
-        })
+        myLoginRoutine({ username, password })
+          .then(() => {
+              this.$router.push('/')
+            })
+          .catch(rej => {
+                console.log(rej);
+                console.log(e);
+            })
       },
       checkForm: function (e) {
         if (this.username && this.password) {

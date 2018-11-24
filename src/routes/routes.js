@@ -10,7 +10,7 @@ import Register from '../components/Auth/Register.vue'
 
 // Admin pages
 import Overview from 'src/components/Dashboard/Views/Overview.vue'
-import UserProfile from 'src/components/Dashboard/Views/UserProfile.vue'
+import OrgaisationsList from 'src/components/Dashboard/Views/Person/OrganisationsList.vue'
 import TableList from 'src/components/Dashboard/Views/TableList.vue'
 import Typography from 'src/components/Dashboard/Views/Typography.vue'
 import Icons from 'src/components/Dashboard/Views/Icons.vue'
@@ -38,13 +38,22 @@ const routes = [
         path: 'register',
         name: 'Register',
         component: Register
+      },
+      {
+        path: 'logout',
+        redirect: to => {
+          localStorage.removeItem('userToken');
+          localStorage.removeItem('user');
+
+          return '/';
+        }
       }
     ]
   },
   {
-    path: '/admin',
+    path: '/profile',
     component: DashboardLayout,
-    redirect: '/admin/overview',
+    redirect: '/profile/overview',
     meta: {
       requiresAuth: true
     },
@@ -55,9 +64,9 @@ const routes = [
         component: Overview
       },
       {
-        path: 'user',
-        name: 'User',
-        component: UserProfile
+        path: 'organisations',
+        name: 'Organisations',
+        component: OrgaisationsList
       },
       {
         path: 'table-list',
