@@ -202,24 +202,38 @@
         margin-top: 110px;
     }
     .author{
-        text-align: center;
+        text-align: left;
         text-transform: none;
-        margin-top: -70px;
+    }
+    .avatar-wrapper {
+        padding-right: 1rem;
+        max-width: 200px;
     }
     .avatar{
-        width: 124px;
-        height: 124px;
-        border: 5px solid #FFFFFF;
+        width: 170px;
+        height: 170px;
         position: relative;
         margin-bottom: 15px;
-
-        &.border-gray{
-            border-color: #EEEEEE;
-        }
+        -webkit-box-shadow: 2px 2px 10px rgba(0,0,0,.1);
+        -moz-box-shadow: 2px 2px 10px rgba(0,0,0,.1);
+        box-shadow: 2px 2px 10px rgba(0,0,0,.1);
     }
     .title{
         line-height: 24px;
     }
+    span {
+        display: block;
+        font-weight: 400;
+        color: #9a9a9a;
+    }
+    .personal-key-wrapper {
+        margin: 2rem 0 1rem;
+        label, input {
+            display: block;
+            width: 100%;
+        }
+    }
+
     .card-body{
         min-height: 240px;
     }
@@ -251,3 +265,71 @@
         background-color: transparent !important;
     }
 }
+
+.profile__cat-button {
+    width: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    .profile__cat-img {
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            object-fit: cover;
+        }
+        &::before {
+            content: '';
+            width: 100%;
+            display: block;
+            padding-bottom: 100%;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,.4);
+        }
+    }
+    h3 {
+        text-transform: uppercase;
+        color: #ffffff;
+    }
+}
+
+.profile__cat-button-title {
+    position: absolute;
+    top: 50%;
+    margin: -.6rem 0 0 0;
+    padding: 0;
+    font-size: 1.2rem;
+    width: 100%;
+    text-align: center;
+}
+
+.accordion-card {
+    border: 1px solid #999999;
+    margin: 1rem 0;
+    button {
+        width: 100%;
+        background-color: transparent;
+        display: flex;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        padding: 1rem;
+    }
+    .card-header {
+        padding: 0;
+        h5 {
+            margin-bottom: 0;
+        }
+    }
+}
+
