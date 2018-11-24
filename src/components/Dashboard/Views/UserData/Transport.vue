@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
         <card class="card-medicine">
-            <h4 class="card-title">Medicine</h4>
+            <h4 class="card-title">Transport</h4>
             <div class="accordion" id="accordionExample">
                 <div class="accordion-card">
                     <div class="card-header" id="headingOne">

@@ -12,8 +12,11 @@ import Register from '../components/Auth/Register.vue'
 import Overview from 'src/components/Dashboard/Views/Overview.vue'
 import OrganisationsList from 'src/components/Dashboard/Views/Person/OrganisationsList.vue'
 import Medicine from 'src/components/Dashboard/Views/UserData/Medicine.vue'
-import TableList from 'src/components/Dashboard/Views/TableList.vue'
-import Typography from 'src/components/Dashboard/Views/Typography.vue'
+import Job from 'src/components/Dashboard/Views/UserData/Job.vue'
+import Money from 'src/components/Dashboard/Views/UserData/Money.vue'
+import Law from 'src/components/Dashboard/Views/UserData/Law.vue'
+import Property from 'src/components/Dashboard/Views/UserData/Property.vue'
+import Transport from 'src/components/Dashboard/Views/UserData/Transport.vue'
 import Icons from 'src/components/Dashboard/Views/Icons.vue'
 import Notifications from 'src/components/Dashboard/Views/Notifications.vue'
 
@@ -45,7 +48,7 @@ const routes = [
   {
     path: '/profile',
     component: DashboardLayout,
-    redirect: '/profile/overview',
+    // redirect: '/profile/overview',
     meta: {
       requiresAuth: true
     },
@@ -66,19 +69,29 @@ const routes = [
         component: Medicine
       },
       {
-        path: 'typography',
-        name: 'Typography',
-        component: Typography
+          path: 'money',
+          name: 'Money',
+          component: Money
       },
       {
-        path: 'icons',
-        name: 'Icons',
-        component: Icons
+          path: 'job',
+          name: 'Job',
+          component: Job
       },
       {
-        path: 'notifications',
-        name: 'Notifications',
-        component: Notifications
+        path: 'transport',
+        name: 'Transport',
+        component: Transport
+      },
+      {
+        path: 'law',
+        name: 'Law',
+        component: Law
+      },
+      {
+        path: 'property',
+        name: 'Property',
+        component: Property
       }
     ]
   },

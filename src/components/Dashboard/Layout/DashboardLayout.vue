@@ -6,11 +6,11 @@
         <i class="nc-icon nc-grid-45"></i>
         <p>Dashboard</p>
       </sidebar-link>
-      <sidebar-link to="/admin/table-list">
+      <sidebar-link to="/profile/requests-list">
         <i class="nc-icon nc-paper-2"></i>
         <p>Income requests</p>
       </sidebar-link>
-      <sidebar-link to="/admin/typography">
+      <sidebar-link to="/profile/settings">
         <i class="nc-icon nc-settings-gear-64"></i>
         <p>Private data settings</p>
       </sidebar-link>

@@ -266,11 +266,16 @@
     }
 }
 
+.content-wrapper {
+  padding: 2rem 1rem;
+}
+
 .profile__cat-button {
     width: 100%;
     display: block;
     position: relative;
     overflow: hidden;
+  margin: 15px 0;
     .profile__cat-img {
         img {
             position: absolute;
