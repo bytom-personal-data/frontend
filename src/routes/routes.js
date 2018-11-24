@@ -20,7 +20,7 @@ const routes = [
   {
     path: '/',
     component: DashboardLayout,
-    redirect: '/admin/overview',
+    redirect: '/profile/overview',
     meta: {
       requiresAuth: true
     }

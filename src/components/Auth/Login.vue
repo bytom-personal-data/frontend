@@ -25,17 +25,17 @@
   const myLoginRoutine = user => {
     return new Promise((resolve, reject) => {
       axios({
-        url: 'auth',
+        url: API_URL + '/signin',
         data: user,
         method: 'POST'
       })
         .then(resp => {
           const token = resp.data.token
-          localStorage.setItem('user-token', token) // store the token in localstorage
+          localStorage.setItem('userToken', token)
           resolve(resp)
         })
         .catch(err => {
-          localStorage.removeItem('user-token') // if the request fails, remove any possible user token if possible
+          localStorage.removeItem('userToken')
           reject(err)
         })
     })
@@ -54,6 +54,19 @@
         myLoginRoutine({ username, password }).then(() => {
           this.$router.push('/')
         })
+      },
+      checkForm: function (e) {
+        if (this.username && this.password) {
+          return true;
+        }
+
+        this.errors = [];
+
+        if (!this.username) {
+          this.errors.push('Username is required.');
+        }
+
+        e.preventDefault();
       }
     }
   }

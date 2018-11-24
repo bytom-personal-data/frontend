@@ -29,7 +29,7 @@
     </div>
 </template>
 <script>
-  import { API_URL } from '../API/API_URL'
+  import {API_URL} from '../API/API_URL'
 
   const axios = require('axios')
 
@@ -43,9 +43,8 @@
       })
         .then(resp => {
           const token = resp.data.token
-          console.log(resp.data);
-          localStorage.setItem('user-token', token) // store the token in localstorage
-          localStorage.setItem('user-token', token) // store the token in localstorage
+          localStorage.setItem('userToken', token) // store the token in localstorage
+          localStorage.setItem('user', resp.data.user) // store the token in localstorage
           resolve(resp)
         })
         .catch(err => {
