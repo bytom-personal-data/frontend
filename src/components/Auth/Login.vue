@@ -57,7 +57,6 @@
       return {
         username: '',
         password: '',
-
         errors: []
       }
     },
@@ -65,12 +64,15 @@
       login: function () {
         const { username, password } = this
         myLoginRoutine({ username, password })
-          .then(() => {
+          .then((resp) => {
               this.$router.push('/')
             })
           .catch(rej => {
-                console.log(rej);
-                console.log(e);
+            if(rej.response && rej.response.data) {
+              this.errors.push(rej.response.data.message);
+            } else {
+              this.errors.push('Unknown server error');
+            }
             })
       },
       checkForm: function (e) {
