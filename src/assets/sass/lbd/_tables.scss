@@ -1,5 +1,10 @@
 .table{
-
+    th {
+      border-top: none;
+    }
+    tr td:last-child {
+      text-align: right;
+    }
    .radio,
    .checkbox{
         position: relative;

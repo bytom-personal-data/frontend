@@ -8,9 +8,9 @@
              v-model="model" />
       <span class="form-check-sign"></span>
     </label>
-    <span>
-      <slot></slot>
-    </span>
+    <!--<span>-->
+      <!--<slot></slot>-->
+    <!--</span>-->
 
   </div>
 </template>
