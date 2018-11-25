@@ -24,25 +24,25 @@
             <div class="form-group form-group--radio-list">
                 <div class="form-radio-list-label">Choose Account Type</div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="type" id="accountPerson" value="1" checked>
+                    <input class="form-check-input" v-model="type" type="radio" name="type" id="accountPerson" value="1" checked>
                     <label class="form-check-label" for="accountPerson">
                         Person
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="type" id="accountFinance" value="20">
+                    <input class="form-check-input" v-model="type" type="radio" name="type" id="accountFinance" value="20">
                     <label class="form-check-label" for="accountFinance">
                         Finance Organisation
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="type" id="accountMedicine" value="30">
+                    <input class="form-check-input" v-model="type" type="radio" name="type" id="accountMedicine" value="30">
                     <label class="form-check-label" for="accountMedicine">
                         Medicine Organisation
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="type" id="accountBusiness" value="10">
+                    <input class="form-check-input" v-model="type" type="radio" name="type" id="accountBusiness" value="10">
                     <label class="form-check-label" for="accountBusiness">
                         Business
                     </label>
@@ -102,8 +102,8 @@
     methods: {
       register: function (e) {
         if(this.checkForm(e)) {
-          const {username, password, password_repeat} = this
-          myRegisterRoutine({username, password, password_repeat}).then(() => {
+          const {username, password, password_repeat, type} = this
+          myRegisterRoutine({username, password, password_repeat, type}).then(() => {
             if(localStorage.token) {
               this.$router.push('/profile/overview')
             } else {

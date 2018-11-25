@@ -21,7 +21,7 @@
       </sidebar-link>
       <sidebar-link v-if="[10,20,30].includes(user.type)" to="/profile/request-user-data">
         <i class="nc-icon nc-paper-2"></i>
-        <p>Request User Information</p>
+        <p>Request User Data</p>
       </sidebar-link>
       <sidebar-link v-if="[10,20,30].includes(user.type)" to="/profile/allowed-users">
         <i class="nc-icon nc-settings-gear-64"></i>
