@@ -1,7 +1,8 @@
 <template>
     <div class="container-fluid">
         <card class="card-medicine">
-            <h4 class="card-title">Law</h4>
+            <h4 class="card-title">Requests</h4>
+            Здесь будут заявки от организаций на персональные данные пользователей
         </card>
     </div>
 </template>

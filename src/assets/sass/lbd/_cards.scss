@@ -322,22 +322,23 @@
     text-align: center;
 }
 
-.accordion-card {
-    border: 1px solid #999999;
-    margin: 1rem 0;
-    button {
-        width: 100%;
-        background-color: transparent;
-        display: flex;
-        border: none;
-        cursor: pointer;
-        text-align: left;
-        padding: 1rem;
+.card-medicine {
+    .card-title {
+        margin-bottom: 1rem;
     }
-    .card-header {
-        padding: 0;
-        h5 {
-            margin-bottom: 0;
+    table {
+        width: 100%;
+        thead tr td{
+            font-weight: 600;
+        }
+        tr {
+            td {
+                padding: .5rem;
+                border: 1px solid #999999;
+            }
+        }
+        tbody tr:nth-child(2n) {
+            background-color: #ececec;
         }
     }
 }

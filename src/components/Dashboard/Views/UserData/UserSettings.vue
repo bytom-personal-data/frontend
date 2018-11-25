@@ -1,7 +1,8 @@
 <template>
     <div class="container-fluid">
         <card class="card-medicine">
-            <h4 class="card-title">Law</h4>
+            <h4 class="card-title">Settings</h4>
+            Здесь будут настройки базовой приватности для запросов по открытому ключу
         </card>
     </div>
 </template>

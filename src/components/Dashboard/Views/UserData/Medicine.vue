@@ -2,88 +2,60 @@
     <div class="container-fluid">
         <card class="card-medicine">
             <h4 class="card-title">Medicine</h4>
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-card">
-                    <div class="card-header" id="headingOne">
-                        <button type="button" data-toggle="collapse" class="row" data-target="#collapseOne"
-                                aria-expanded="true" aria-controls="collapseOne">
-                            <span class="col-sm date">12/10/2018</span>
-                            <span class="col-sm doctor-type">Surgeon</span>
-                            <span class="col-sm doctor-name">Daniel Wilson</span>
-                        </button>
-                    </div>
-                    <div id="collapseOne" class="collapsing" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                            squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                            single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                            beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-                            lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
-                            probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-card">
-                    <div class="card-header" id="headingTwo">
-                        <button class="row" type="button" data-toggle="collapse" data-target="#collapseTwo"
-                                aria-expanded="false" aria-controls="collapseTwo">
-                            <span class="col-sm date">12/10/2018</span>
-                            <span class="col-sm doctor-type">Surgeon</span>
-                            <span class="col-sm doctor-name">Daniel Wilson</span>
-                        </button>
-                    </div>
-                    <div id="collapseTwo" class="collapsing" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                            squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                            single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                            beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-                            lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
-                            probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-card">
-                    <div class="card-header" id="headingThree">
-                        <button class="row" type="button" data-toggle="collapse" data-target="#collapseThree"
-                                aria-expanded="false" aria-controls="collapseThree">
-                            <span class="col-sm date">12/10/2018</span>
-                            <span class="col-sm doctor-type">Surgeon</span>
-                            <span class="col-sm doctor-name">Daniel Wilson</span>
-                        </button>
-                    </div>
-                    <div id="collapseThree" class="collapsing" aria-labelledby="headingThree"
-                         data-parent="#accordionExample">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                            squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                            single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                            beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-                            lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
-                            probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <table>
+                <thead>
+                <tr>
+                    <td>Date</td>
+                    <td>Doctor specialitet</td>
+                    <td>Doctor name</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>13/09/2018</td>
+                    <td>Surgeon</td>
+                    <td>Tropov Nikolay Igorevich</td>
+                </tr>
+                <tr>
+                    <td>16/09/2018</td>
+                    <td>Okulist</td>
+                    <td>Nurin Sergey Gennadjevich</td>
+                </tr>
+                <tr>
+                    <td>25/09/2018</td>
+                    <td>Therapist</td>
+                    <td>Sebastianova Natalia Aleksandrovna</td>
+                </tr>
+                <tr>
+                    <td>07/10/2018</td>
+                    <td>Otolaryngologist</td>
+                    <td>Zimina Irina Leonidovna</td>
+                </tr>
+                <tr>
+                    <td>06/11/2018</td>
+                    <td>Masseur</td>
+                    <td>Kozjuhov Timur Burhanovich</td>
+                </tr>
+                </tbody>
+            </table>
         </card>
     </div>
 </template>
 <script>
     import Card from 'src/components/UIComponents/Cards/Card.vue'
+    import Table from 'src/components/UIComponents/Table.vue'
 
     export default {
         components: {
-            Card
+            Card,
+            Table
         },
         mounted: function () {
             //TODO:
         },
         data: function () {
             return {
-                cards: []
+
             };
         }
     }

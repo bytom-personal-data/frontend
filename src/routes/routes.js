@@ -17,8 +17,8 @@ import Money from 'src/components/Dashboard/Views/UserData/Money.vue'
 import Law from 'src/components/Dashboard/Views/UserData/Law.vue'
 import Property from 'src/components/Dashboard/Views/UserData/Property.vue'
 import Transport from 'src/components/Dashboard/Views/UserData/Transport.vue'
-import Icons from 'src/components/Dashboard/Views/Icons.vue'
-import Notifications from 'src/components/Dashboard/Views/Notifications.vue'
+import Requests from 'src/components/Dashboard/Views/UserData/RequestsList.vue'
+import UserSettings from 'src/components/Dashboard/Views/UserData/UserSettings.vue'
 
 const routes = [
   {
@@ -92,6 +92,16 @@ const routes = [
         path: 'property',
         name: 'Property',
         component: Property
+      },
+      {
+          path: 'requests-list',
+          name: 'Requests',
+          component: Requests
+      },
+      {
+        path: 'settings',
+        name: 'UserSettings',
+        component: UserSettings
       }
     ]
   },
