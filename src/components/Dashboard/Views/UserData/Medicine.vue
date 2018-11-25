@@ -2,45 +2,15 @@
     <div class="container-fluid">
         <card class="card-medicine">
             <h4 class="card-title">Medicine</h4>
-
-            {{ dataList }}
-
-            <table>
-                <thead>
-                <tr>
-                    <td>Date</td>
-                    <td>Doctor specialitet</td>
-                    <td>Doctor name</td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>13/09/2018</td>
-                    <td>Surgeon</td>
-                    <td>Tropov Nikolay Igorevich</td>
-                </tr>
-                <tr>
-                    <td>16/09/2018</td>
-                    <td>Okulist</td>
-                    <td>Nurin Sergey Gennadjevich</td>
-                </tr>
-                <tr>
-                    <td>25/09/2018</td>
-                    <td>Therapist</td>
-                    <td>Sebastianova Natalia Aleksandrovna</td>
-                </tr>
-                <tr>
-                    <td>07/10/2018</td>
-                    <td>Otolaryngologist</td>
-                    <td>Zimina Irina Leonidovna</td>
-                </tr>
-                <tr>
-                    <td>06/11/2018</td>
-                    <td>Masseur</td>
-                    <td>Kozjuhov Timur Burhanovich</td>
-                </tr>
-                </tbody>
-            </table>
+            <l-table :columns="tableData.columns"
+                     :data="tableData.data">
+                <template slot="columns">{{columns}}</template>
+                <template slot-scope="{row}">
+                    <td>{{row.date}}</td>
+                    <td>{{row.docType}}</td>
+                    <td>{{row.docName}}</td>
+                </template>
+            </l-table>
         </card>
     </div>
 </template>
@@ -50,12 +20,12 @@
     const axios = require('axios')
 
     import Card from 'src/components/UIComponents/Cards/Card.vue'
-    import Table from 'src/components/UIComponents/Table.vue'
+    import LTable from 'src/components/UIComponents/Table.vue'
 
     export default {
         components: {
             Card,
-            Table
+            LTable
         },
         mounted: function () {
           this.errors = []
@@ -80,7 +50,19 @@
         data: function () {
             return {
                 dataList: null,
-                errors: []
+                errors: [],
+              tableData: {
+                // columns: [
+                //     {date: 'Дата', docType: 'Doctor specialitet', docName: 'Doctor name'}
+                // ],
+                data: [
+                  {date: '13/09/2018', docType: 'Surgeon', docName: 'Tropov Nikolay Igorevich'},
+                  {date: '16/09/2018', docType: 'Okulist', docName: 'Nurin Sergey Gennadjevich'},
+                  {date: '25/09/2018', docType: 'Therapist', docName: 'Sebastianova Natalia Aleksandrovna'},
+                  {date: '07/10/2018', docType: 'Otolaryngologist', docName: 'Zimina Irina Leonidovna'},
+                  {date: '06/11/2018', docType: 'Masseur', docName: 'Kozjuhov Timur Burhanovich'},
+                ]
+              }
             };
         }
     }
