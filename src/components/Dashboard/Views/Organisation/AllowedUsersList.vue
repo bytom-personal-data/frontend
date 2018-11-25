@@ -1,13 +1,13 @@
 <template>
     <div class="container-fluid">
         <card class="card-medicine">
-            <h4 class="card-title">Requests</h4>
+            <h4 class="card-title">Allowed Users</h4>
 
             <div v-if="requests.length == 0" class="alert alert-info">
-                There is no new requests from Organisations for your Data
+                There is no users who allow you to view their information.
             </div>
             <div v-else>
-                <div v-for="requestRow in requests">
+                <div v-for="user in users">
                     <div class="alert alert-info alert-with-icon" data-notify="container">
                         <button type="button" aria-hidden="true" class="close" data-dismiss="alert">
                             <i class="nc-icon nc-simple-remove"></i>
@@ -52,7 +52,7 @@
         },
         data: function () {
             return {
-                requests: [],
+                users: [],
                 errors: []
             };
         }

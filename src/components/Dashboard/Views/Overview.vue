@@ -7,13 +7,6 @@
                 </div>
             </div>
         </div>
-        <!--<div class="container-fluid">-->
-            <!--<div class="row">-->
-                <!--<div class="col-md-12">-->
-                    <!--<user-card></user-card>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
     </div>
 </template>
 <script>
@@ -26,7 +19,12 @@
             UserLinks
         },
         data() {
-            return {};
+            return {
+              user: null
+            };
+        },
+        mounted: function() {
+            this.user = localStorage.user;
         }
     }
 </script>

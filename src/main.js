@@ -18,13 +18,16 @@ const router = new VueRouter({
   linkActiveClass: 'nav-item active'
 })
 
+const shared = {
+  user: function() {
+    //TODO: get user by token
+    return localStorage.user;
+  }
+};
+
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
   let userToken = localStorage.token
-
-  //TODO: get current user
-  console.log(localStorage.token)
-  console.log(localStorage.getItem('token'))
 
   if (requiresAuth && !userToken) {
     next('/auth/login');
@@ -39,5 +42,8 @@ router.beforeEach((to, from, next) => {
 new Vue({
   el: '#app',
   render: h => h(App),
+  data: {
+    shared
+  },
   router
 })

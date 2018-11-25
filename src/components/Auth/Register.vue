@@ -24,21 +24,27 @@
             <div class="form-group form-group--radio-list">
                 <div class="form-radio-list-label">Choose Account Type</div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="accountPerson" value="option1" checked>
+                    <input class="form-check-input" type="radio" name="type" id="accountPerson" value="1" checked>
                     <label class="form-check-label" for="accountPerson">
                         Person
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="accountFinance" value="option2">
+                    <input class="form-check-input" type="radio" name="type" id="accountFinance" value="20">
                     <label class="form-check-label" for="accountFinance">
                         Finance Organisation
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="accountMedicine" value="option2">
+                    <input class="form-check-input" type="radio" name="type" id="accountMedicine" value="30">
                     <label class="form-check-label" for="accountMedicine">
                         Medicine Organisation
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="type" id="accountBusiness" value="10">
+                    <label class="form-check-label" for="accountBusiness">
+                        Business
                     </label>
                 </div>
             </div>

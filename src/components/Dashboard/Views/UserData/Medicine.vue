@@ -15,6 +15,10 @@
     </div>
 </template>
 <script>
+    import { API_URL } from '../../../API/API_URL'
+
+    const axios = require('axios')
+
     import Card from 'src/components/UIComponents/Cards/Card.vue'
     import LTable from 'src/components/UIComponents/Table.vue'
 
@@ -24,22 +28,41 @@
             LTable
         },
         mounted: function () {
-            //TODO:
+          this.errors = []
+          return new Promise((resolve, reject) => {
+            axios({
+              url: API_URL + '/data/get',
+              headers: {'Auth-Token': localStorage.token},
+              params: {labels: ['medicine']}
+            })
+              .then(resp => {
+                console.log(resp)
+                this.dataList = 'adasd'
+                resolve(resp)
+              })
+              .catch(err => {
+                console.log(err)
+                this.errors.push('There is a Server Error');
+                reject(err)
+              })
+          })
         },
         data: function () {
             return {
-                tableData: {
-                    // columns: [
-                    //     {date: 'Дата', docType: 'Doctor specialitet', docName: 'Doctor name'}
-                    // ],
-                    data: [
-                        {date: '13/09/2018', docType: 'Surgeon', docName: 'Tropov Nikolay Igorevich'},
-                        {date: '16/09/2018', docType: 'Okulist', docName: 'Nurin Sergey Gennadjevich'},
-                        {date: '25/09/2018', docType: 'Therapist', docName: 'Sebastianova Natalia Aleksandrovna'},
-                        {date: '07/10/2018', docType: 'Otolaryngologist', docName: 'Zimina Irina Leonidovna'},
-                        {date: '06/11/2018', docType: 'Masseur', docName: 'Kozjuhov Timur Burhanovich'},
-                    ]
-                }
+                dataList: null,
+                errors: [],
+              tableData: {
+                // columns: [
+                //     {date: 'Дата', docType: 'Doctor specialitet', docName: 'Doctor name'}
+                // ],
+                data: [
+                  {date: '13/09/2018', docType: 'Surgeon', docName: 'Tropov Nikolay Igorevich'},
+                  {date: '16/09/2018', docType: 'Okulist', docName: 'Nurin Sergey Gennadjevich'},
+                  {date: '25/09/2018', docType: 'Therapist', docName: 'Sebastianova Natalia Aleksandrovna'},
+                  {date: '07/10/2018', docType: 'Otolaryngologist', docName: 'Zimina Irina Leonidovna'},
+                  {date: '06/11/2018', docType: 'Masseur', docName: 'Kozjuhov Timur Burhanovich'},
+                ]
+              }
             };
         }
     }

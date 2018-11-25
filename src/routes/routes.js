@@ -19,6 +19,8 @@ import Property from 'src/components/Dashboard/Views/UserData/Property.vue'
 import Transport from 'src/components/Dashboard/Views/UserData/Transport.vue'
 import Requests from 'src/components/Dashboard/Views/UserData/RequestsList.vue'
 import UserSettings from 'src/components/Dashboard/Views/UserData/UserSettings.vue'
+import RequestUserData from 'src/components/Dashboard/Views/Organisation/RequestUserData.vue'
+import AllowedUsersList from 'src/components/Dashboard/Views/Organisation/AllowedUsersList.vue'
 
 const routes = [
   {
@@ -102,7 +104,17 @@ const routes = [
         path: 'settings',
         name: 'UserSettings',
         component: UserSettings
-      }
+      },
+      {
+        path: 'request-user-data',
+        name: 'RequestUserData',
+        component: RequestUserData
+      },
+      {
+        path: 'allowed-users',
+        name: 'AllowedUsersList',
+        component: AllowedUsersList
+      },
     ]
   },
   { path: '*', component: NotFound }

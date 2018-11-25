@@ -81,9 +81,9 @@
       hideSidebar () {
         this.$sidebar.displaySidebar(false)
       },
-      logout:function(){
+      logout: function() {
         localStorage.clear();
-        this.$router.push('/')
+        this.$router.push('/auth/login')
       },
     }
   }

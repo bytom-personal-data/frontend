@@ -2,31 +2,33 @@
   <div class="wrapper">
     <side-bar>
       <mobile-menu slot="content"></mobile-menu>
-      <sidebar-link to="/profile/overview">
+      <sidebar-link v-if="user.type == 1" to="/profile/overview">
         <i class="nc-icon nc-grid-45"></i>
         <p>Dashboard</p>
       </sidebar-link>
-      <sidebar-link to="/profile/requests-list">
+      <sidebar-link v-if="user.type == 1" to="/profile/requests-list">
         <i class="nc-icon nc-paper-2"></i>
         <p>Income requests</p>
       </sidebar-link>
-      <sidebar-link to="/profile/settings">
+      <sidebar-link v-if="user.type == 1" to="/profile/settings">
         <i class="nc-icon nc-settings-gear-64"></i>
         <p>Private data settings</p>
       </sidebar-link>
-      <!--<sidebar-link to="/admin/icons">-->
-        <!--<i class="nc-icon nc-atom"></i>-->
-        <!--<p>Icons</p>-->
-      <!--</sidebar-link>-->
-      <!--<sidebar-link to="/admin/maps">-->
-        <!--<i class="nc-icon nc-pin-3"></i>-->
-        <!--<p>Maps</p>-->
-      <!--</sidebar-link>-->
-      <!--<sidebar-link to="/admin/notifications">-->
-        <!--<i class="nc-icon nc-bell-55"></i>-->
-        <!--<p>Notifications</p>-->
-      <!--</sidebar-link>-->
+
+      <sidebar-link v-if="[10,20,30].includes(user.type)" to="/profile/overview">
+        <i class="nc-icon nc-grid-45"></i>
+        <p>Dashboard</p>
+      </sidebar-link>
+      <sidebar-link v-if="[10,20,30].includes(user.type)" to="/profile/request-user-data">
+        <i class="nc-icon nc-paper-2"></i>
+        <p>Request User Information</p>
+      </sidebar-link>
+      <sidebar-link v-if="[10,20,30].includes(user.type)" to="/profile/allowed-users">
+        <i class="nc-icon nc-settings-gear-64"></i>
+        <p>Allowed Users List</p>
+      </sidebar-link>
     </side-bar>
+
     <div class="main-panel">
       <top-navbar></top-navbar>
 
@@ -47,6 +49,12 @@
   import DashboardContent from './Content.vue'
   import MobileMenu from './MobileMenu.vue'
   export default {
+    data: function() {
+      return {
+        user: null,
+        userType: null
+      }
+    },
     components: {
       TopNavbar,
       ContentFooter,
@@ -59,6 +67,9 @@
           this.$sidebar.displaySidebar(false)
         }
       }
+    },
+    created: function() {
+      this.user = JSON.parse(localStorage.user)
     }
   }
 
