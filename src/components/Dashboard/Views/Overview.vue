@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <user-links></user-links>
+                    <user-links v-if="user.type == 1"></user-links>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
             };
         },
         mounted: function() {
-            this.user = localStorage.user;
+            this.user = JSON.parse(localStorage.user);
         }
     }
 </script>
